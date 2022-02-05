@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+   
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>settings</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button  mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span>Profil</span>
+        </button>
+        <button (click)="openDialog()" mat-menu-item>
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </button>
+        <button (click)="openDialogRegister()" mat-menu-item>
+          <mat-icon>person_add</mat-icon>
+          <span>Registiration</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>brightness_2</mat-icon>
+          <span>Night mode</span>
+        </button>
+      </mat-menu>
+</mat-toolbar>
