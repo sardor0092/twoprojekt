@@ -12,12 +12,15 @@ import { UserComponent } from './admin/entity/user/user.component';
 import { CoreModule } from './core/core-module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { AuthInterceptor } from './shared/auth-interceptor';
+import { SidenavComponent } from './admin/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     UserComponent,
+    
+    
    
   ],
   imports: [
