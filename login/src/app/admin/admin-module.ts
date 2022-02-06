@@ -12,25 +12,24 @@ import { SidenavComponent } from "./sidenav/sidenav.component";
 
 
 @NgModule({
-    declarations:[    
+    declarations: [
+
         SidenavComponent,
+        LayoutComponent,
         HeaderComponent,
         BooksnewComponent,
         BooksreadingComponent,
-        LayoutComponent,     
         EditProfilComponent
-  
     ]
     ,
-    imports:[
+    imports: [
         CommonModule,
         AdminRoutingModule,
         MaterialModule,
         FormsModule,
         ReactiveFormsModule
-        
     ]
 })
 
 
-export class AdminModule {}
+export class AdminModule { }

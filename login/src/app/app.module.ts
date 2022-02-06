@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './public/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -12,16 +11,14 @@ import { UserComponent } from './admin/entity/user/user.component';
 import { CoreModule } from './core/core-module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { AuthInterceptor } from './shared/auth-interceptor';
-import { SidenavComponent } from './admin/sidenav/sidenav.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
+    AppComponent,   
     UserComponent,
-    
-    
-   
+
   ],
   imports: [
     BrowserModule,
@@ -49,6 +46,7 @@ import { SidenavComponent } from './admin/sidenav/sidenav.component';
 
     }
   ],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

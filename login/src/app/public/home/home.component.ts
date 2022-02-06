@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog,  } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from 'src/app/login/login.component';
-import { RegisterComponent } from "src/app/login/register/RegisterComponent";
+import { RegisterComponent } from 'src/app/login/register/RegisterComponent';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +11,13 @@ import { RegisterComponent } from "src/app/login/register/RegisterComponent";
 export class HomeComponent implements OnInit {
 
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog:MatDialog) {
 
   }
   ngOnInit(): void {
 
   }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '450px',
@@ -32,4 +33,5 @@ export class HomeComponent implements OnInit {
 
     });
   }
+ 
 }

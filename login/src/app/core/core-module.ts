@@ -12,7 +12,6 @@ export class CoreModule {
     core: CoreModule
   ) {
     if (core) {
-      throw new Error('Core Module can only be imported to AppModule.');
     }
   }
 }

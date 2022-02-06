@@ -15,20 +15,20 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: "oquvchilar"
+        redirectTo: "booksnew"
       },
       {
         path: 'user',
         component: UserComponent,
         canActivate: [UserRouteAccessGuard],
-        data:{
+        data: {
           authorities: [Lavozim.ADMIN, Lavozim.DIREKTOR]
         }
       },
-      { path: 'booksnew', component: BooksnewComponent},
+      { path: 'booksnew', component: BooksnewComponent },
       { path: 'bookreding', component: BooksreadingComponent },
-   
-     {path:"edit",component:EditProfilComponent},
+
+      { path: "edit", component: EditProfilComponent },
     ],
   }
 
