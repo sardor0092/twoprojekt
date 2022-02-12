@@ -1,8 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtUtil } from 'src/app/core/jwt.util';
-
 
 @Component({
   selector: 'app-header',
@@ -11,8 +10,7 @@ import { JwtUtil } from 'src/app/core/jwt.util';
 })
 export class HeaderComponent implements OnInit {
 
-  
-  url!:null;
+url!:null;
 
 
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter<any>();
@@ -42,8 +40,5 @@ chiqish(){
 this.jwtUtil.clear();
 this.router.navigate(["/"])
 }
-
-
-
 
 }

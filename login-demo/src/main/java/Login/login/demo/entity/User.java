@@ -4,24 +4,27 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
-
 @Entity
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private String ism;
+
     @Column(nullable = false)
     private String familiya;
+
     @Size(max = 30, min = 6)
     @NotNull
     @Column(unique = true, nullable = false)
     private String login;
-    @Size(max = 30, min = 6)
+
+    @Size(max = 60, min = 60)
     @NotNull
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String parol;
 
     @ElementCollection(targetClass = Lavozim.class, fetch = FetchType.EAGER)
@@ -31,6 +34,8 @@ public class User {
     private Set<Lavozim> lavozimlar;
 
     private Boolean aktiv;
+
+
 
     public Long getId() {
         return id;
@@ -47,7 +52,6 @@ public class User {
     public void setIsm(String ism) {
         this.ism = ism;
     }
-
 
     public String getFamiliya() {
         return familiya;
@@ -88,6 +92,5 @@ public class User {
     public void setAktiv(Boolean aktiv) {
         this.aktiv = aktiv;
     }
-
 
 }

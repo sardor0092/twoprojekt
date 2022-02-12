@@ -12,22 +12,17 @@ import java.util.HashSet;
 import java.util.Optional;
 
 
-
 @SpringBootApplication
 public class LoginDemoApplication implements ApplicationRunner {
 
     public static void main(String[] args) {
-        SpringApplication.run(LoginDemoApplication.class, args);
-
-
-        }
+        SpringApplication.run(LoginDemoApplication.class, args);}
 
 
     @Autowired
     UserRepository userRepository;
     @Autowired
-    PasswordEncoder encoder;
-
+    PasswordEncoder passwordEncoder;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -38,15 +33,13 @@ public class LoginDemoApplication implements ApplicationRunner {
             u.setIsm("admin");
             u.setFamiliya("Admin");
             u.setLogin("admin123");
-            u.setParol(encoder.encode("admin123"));
+            u.setParol(passwordEncoder.encode("admin123"));
             u.setAktiv(true);
-
             HashSet<Lavozim> adn =  new HashSet<Lavozim>();
             adn.add(Lavozim.ADMIN);
             u.setLavozimlar(adn);
             userRepository.save(u);
-
-    }}
-
+        }
+    }
     }
 

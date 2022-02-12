@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { JwtUtil } from '../core/jwt.util';
@@ -21,7 +22,10 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService,
     private _snackBar: MatSnackBar,
     private jwtUtil: JwtUtil,
-    private stateStorageService: StateStorageService) { }
+    private stateStorageService: StateStorageService,
+    // private dialogRef:MatDialogRef<LoginComponent>
+  
+    ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -38,7 +42,13 @@ export class LoginComponent implements OnInit {
     console.log(loginParol);
     this.loginService.login(loginParol).subscribe(
       () => {
+        this.loginForm.reset()
+        // this.dialogRef.close("save")
+       
+        
         this.surovBajarilmoqda = false;
+        
+        
 
         let roles = this.jwtUtil.getRoles();
 
@@ -57,12 +67,14 @@ export class LoginComponent implements OnInit {
             message = error.error.message;
           }
         }
+       
         this._snackBar.open(message, 'X', {
           duration: 4000,
           verticalPosition: 'bottom',
 
         });
         this.surovBajarilmoqda = false;
+        
       }
     )
 

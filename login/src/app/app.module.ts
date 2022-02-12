@@ -11,13 +11,14 @@ import { UserComponent } from './admin/entity/user/user.component';
 import { CoreModule } from './core/core-module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { AuthInterceptor } from './shared/auth-interceptor';
+import { DeleredialogComponent } from './deleredialog/deleredialog.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,   
-    UserComponent,
+    UserComponent, DeleredialogComponent,
 
   ],
   imports: [

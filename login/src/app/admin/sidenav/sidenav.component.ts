@@ -8,19 +8,23 @@ import { Lavozim } from 'src/app/shared/model/Lavozim';
   styleUrls: ['./sidenav.component.scss']
 })
 
-export class SidenavComponent implements AfterViewInit {
+export class SidenavComponent implements AfterViewInit ,OnInit {
 
   avatar!:string;
   isAdmin = false;
+  
   constructor(private accountService: AccountService) { }
+  ngOnInit(): void {
+   this.isAdmin = this.accountService.hasAnyAuthority([Lavozim.ADMIN, Lavozim.DIREKTOR]);
+  }
 
   ngAfterViewInit(): void {
 
-    this.isAdmin = this.accountService.hasAnyAuthority([Lavozim.ADMIN, Lavozim.DIREKTOR]);
+    
+
   }
 
-  ngOnInit(): void {
-  }
+ 
   
 
 }

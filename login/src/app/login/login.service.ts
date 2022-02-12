@@ -25,6 +25,7 @@ export class LoginService {
     .pipe( map((token)=>{     
         this.jwtUtil.save(token.token, loginParol.rememberMe);
         this.accountService.identity(true)
+        
       })
     );
   }

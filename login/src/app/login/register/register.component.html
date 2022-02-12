@@ -1,8 +1,8 @@
 
-
 <div class="login-page">
   <div class="content px20">
-    <form class="login-form" >
+
+    <form [formGroup]='registerForm' (ngSubmit)="onRegister()" class="login-form" >
       <div class="text-center">
         <h1 class="app-name">Loyiha nomi
 
@@ -12,6 +12,7 @@
 
       <div fxLayout="row">
         <div fxFlexFill>
+          <form ></form>
           <mat-form-field class="w-100">
             <input matInput formControlName='ism' placeholder="Ismingizni kiriting . . .">
             <mat-hint color="accent">*iltimos ismingizga etiborli buling. Keyinchalik ismni uzgartirib bulmaydi</mat-hint>
@@ -24,7 +25,7 @@
           </mat-form-field>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>tugilgan kunni kiriting</mat-label>
-            <input matInput [min]="" [max]="" [matDatepicker]="picker" formControlName='tugkun'>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName='tugkun'>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -54,13 +55,10 @@
       <div fxLayout="column">
         <div fxFlexFill fxFlexFill.lg='6'>
           <button type="submit" mat-raised-button color="primary"
-            [disabled]='' class="w-100">Ro'yhatdan o'tish</button>
+            [disabled]='registerForm.invalid || surovBajarilmoqda ' class="w-100">Ro'yhatdan o'tish</button>
 
         </div>
-        <div fxFlexFill fxFlexFil.lg='6'>
-          <a class="mt-5"  color="secondary" class="w-50">Tizimga kirish</a>
-        <br>
-      </div>
+   
       </div>
     </form>
   </div>

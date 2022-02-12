@@ -11,7 +11,7 @@ public class UserMaxsus implements UserDetails {
     private String login;
     private String parol;
     private Set<SimpleGrantedAuthority> lavozimlar;
-    private Boolean aktiv;
+
 
     public UserMaxsus(){}
 
@@ -24,7 +24,7 @@ public class UserMaxsus implements UserDetails {
                         .stream()
                         .map(l->new SimpleGrantedAuthority(l.name()))
                         .collect(Collectors.toSet());
-        this.aktiv = user.getAktiv();
+
     }
 
     @Override
@@ -59,8 +59,9 @@ public class UserMaxsus implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return aktiv;
+        return true;
     }
+
 
     public String getLogin() {
         return login;
@@ -86,11 +87,7 @@ public class UserMaxsus implements UserDetails {
         this.lavozimlar = lavozimlar;
     }
 
-    public Boolean getAktiv() {
-        return aktiv;
-    }
 
-    public void setAktiv(Boolean aktiv) {
-        this.aktiv = aktiv;
-    }
+
+
 }

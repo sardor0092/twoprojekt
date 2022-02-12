@@ -13,7 +13,7 @@ public class UserDTO {
     private String familiya;
     private String login;
     private Set<Lavozim> lavozimlar;
-    private Boolean aktiv;
+
 
     public UserDTO() {
 
@@ -24,8 +24,7 @@ public class UserDTO {
         this.ism = user.getIsm();
         this.familiya = user.getFamiliya();
         this.login = user.getLogin();
-        this.aktiv = user.getAktiv();
-        this.lavozimlar = user.getLavozimlar();
+        lavozimlar = user.getLavozimlar();
 
     }
 
@@ -70,11 +69,5 @@ public class UserDTO {
         this.lavozimlar = lavozimlar;
     }
 
-    public Boolean getAktiv() {
-        return aktiv;
-    }
 
-    public void setAktiv(Boolean aktiv) {
-        this.aktiv = aktiv;
-    }
 }

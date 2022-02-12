@@ -59,7 +59,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatToolbarModule,
     MatListModule,
     MatGridListModule,
-    MatCardModule,
     MatStepperModule,
     MatTabsModule,
     MatExpansionModule,
@@ -76,6 +75,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule
 
   ],
   exports: [
@@ -96,7 +96,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatToolbarModule,
     MatListModule,
     MatGridListModule,
-    MatCardModule,
     MatStepperModule,
     MatTabsModule,
     MatExpansionModule,
@@ -114,6 +113,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatNativeDateModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule,
 
 
   ],

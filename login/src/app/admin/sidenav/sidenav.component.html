@@ -1,17 +1,9 @@
 <mat-nav-list>
-
-
-  
-
-    <!-- <mat-divider></mat-divider> -->
     <h2 matSubheader class="mt-2">TIZIM</h2>
-    <!-- <a mat-list-item routerLink="dashboard" routerLinkActive="list-item-active"><mat-icon>dashboard</mat-icon>Dashboard</a> -->
-    
-    <a mat-list-item  routerLink="oqituvchilar" routerLinkActive="list-item-active"> <mat-icon>account_box</mat-icon>O'qituvchilar</a>
-    <a mat-list-item  routerLink="oquvchilar"  ><mat-icon>supervisor_account</mat-icon> O'quvchilar</a>
-    <a mat-list-item  routerLink="sinf" ><mat-icon>wc</mat-icon>Sinf qo'shish</a>
-    <a mat-list-item  routerLink="fan"><mat-icon>school</mat-icon>Fan qo'shish</a>
-   
-    <a mat-list-item   routerLink="user"><mat-icon>calendar_today</mat-icon>Foydalanuvchilar</a>
+    <a mat-list-item  routerLink="oqituvchilar" routerLinkActive="list-item-active"> <mat-icon>account_box</mat-icon>Link1</a>
+    <a mat-list-item  routerLink="oquvchilar"  ><mat-icon>supervisor_account</mat-icon>Link2</a>
+    <a mat-list-item  routerLink="sinf" ><mat-icon>wc</mat-icon>Link3</a>
+    <a mat-list-item  routerLink="fan"><mat-icon>school</mat-icon>Link4</a>
+    <a mat-list-item  *ngIf="isAdmin" routerLink="user"><mat-icon>calendar_today</mat-icon>Foydalanuvchilar</a>
 
 
