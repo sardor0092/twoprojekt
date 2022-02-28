@@ -14,24 +14,43 @@ export class AccountService {
   private authenticationState = new ReplaySubject<User | null>(1);
   private userCache$?: Observable<User | null>;
   private baseApi = environment.baseUrl + "/api/account";
+  uploadProfileImage: any;
   constructor(
     private http: HttpClient,
     private router: Router,
   ) { }
 
   save(user: User): Observable<{}> {
-    return this.http.post(this.baseApi, user);
+    return this.http.put(this.baseApi, user);
+  }
+  savePassword(user: any): Observable<{}> {
+    return this.http.put(this.baseApi + "/password", user);
   }
 
+  onSelectFile(user :any):Observable<{}> {
+    return this.http.put(this.baseApi + "/api/file/upload" ,user)
+  }
+
+ 
+  public create(userlar: User): Observable<User> {
+    return this.http.post<User>(this.baseApi, userlar);
+  }
+
+  public update(userlar: User): Observable<User> {
+    return this.http.put<User>(this.baseApi, userlar);
+  }
   authenticate(identity: User | null): void {
     
     this.userIdentity = identity;
     this.authenticationState.next(this.userIdentity);
   }
+
   hasAnyAuthority(lavozimlar: string[] | string): boolean {
     if (!this.userIdentity) {
       return false;
     }
+    if(!this.userIdentity.lavozimlar) return false;
+    
     if (!Array.isArray(lavozimlar)) {
       lavozimlar = [lavozimlar];
     }
@@ -57,7 +76,6 @@ export class AccountService {
 
         }
       );
-
     }
     return this.userCache$;
   }
@@ -70,7 +88,9 @@ export class AccountService {
     return this.authenticationState.asObservable();
   }
 
-
+  // getImageUrl(): string {
+  //   return this.userIdentity?.imageUrl ?? '';
+  // }
 
   private fetch(): Observable<User> {
     console.log('fetching . . .');
@@ -79,5 +99,14 @@ export class AccountService {
 
   }
 
+  // private navigateToStoredUrl(): void {
+  //   // previousState can be set in the authExpiredInterceptor and in the userRouteAccessService
+  //   // if login is successful, go to stored previousState and clear previousState
+  //   const previousUrl = this.stateStorageService.getUrl();
+  //   if (previousUrl) {
+  //     this.stateStorageService.clearUrl();
+  //     this.router.navigateByUrl(previousUrl);
+  //   }
+  // }
 
 }

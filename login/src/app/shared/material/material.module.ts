@@ -35,6 +35,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -75,7 +76,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCardModule
+    MatCardModule,
+    FlexLayoutModule
 
   ],
   exports: [
@@ -114,6 +116,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
+    FlexLayoutModule
 
 
   ],

@@ -15,13 +15,7 @@ import { RegisterComponent } from "./register/RegisterComponent";
         ReactiveFormsModule,
         MaterialModule,
         LoginRoutingModule,
-        
-
     ]
-
 })
-
-
-
 
 export class LoginModule { }

@@ -6,6 +6,7 @@ import { AdminRoutingModule } from "./admin-routing.module";
 import { BooksnewComponent } from "./entity/booksnew/booksnew.component";
 import { BooksreadingComponent } from "./entity/booksreading/booksreading.component";
 import { EditProfilComponent } from "./entity/edit-profil/edit-profil.component";
+
 import { HeaderComponent } from "./header/header.component";
 import { LayoutComponent } from "./layout.component";
 import { SidenavComponent } from "./sidenav/sidenav.component";
@@ -19,7 +20,9 @@ import { SidenavComponent } from "./sidenav/sidenav.component";
         HeaderComponent,
         BooksnewComponent,
         BooksreadingComponent,
-        EditProfilComponent
+        EditProfilComponent,
+        
+        
     ]
     ,
     imports: [

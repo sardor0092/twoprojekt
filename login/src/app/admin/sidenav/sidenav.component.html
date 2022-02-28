@@ -1,9 +1,30 @@
-<mat-nav-list>
-    <h2 matSubheader class="mt-2">TIZIM</h2>
-    <a mat-list-item  routerLink="oqituvchilar" routerLinkActive="list-item-active"> <mat-icon>account_box</mat-icon>Link1</a>
-    <a mat-list-item  routerLink="oquvchilar"  ><mat-icon>supervisor_account</mat-icon>Link2</a>
-    <a mat-list-item  routerLink="sinf" ><mat-icon>wc</mat-icon>Link3</a>
-    <a mat-list-item  routerLink="fan"><mat-icon>school</mat-icon>Link4</a>
-    <a mat-list-item  *ngIf="isAdmin" routerLink="user"><mat-icon>calendar_today</mat-icon>Foydalanuvchilar</a>
-
-
+<mat-nav-list routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <h2 matSubheader class="mt-2">Bo'lim</h2>
+    <a mat-list-item routerLinkActive="active" routerLink="booksnew">
+        <mat-icon>wallpaper</mat-icon>Yangi kitoblar
+    </a>
+    <a mat-list-item routerLinkActive="active" routerLink="kopuqilgan">
+        <mat-icon>books</mat-icon>Tizimga kitob yuklash
+    </a>
+    <a mat-list-item routerLinkActive="active" routerLink="badiiy">
+        <mat-icon>book</mat-icon>Badiiy kitoblar
+    </a>
+    <a mat-list-item routerLinkActive="active" routerLink="tarixiy">
+        <mat-icon>books</mat-icon>Tarixiy kitoblar
+    </a>
+    <a mat-list-item routerLinkActive="active" routerLink="fantastik">
+        <mat-icon>book</mat-icon>Fantastik
+    </a>
+    <a mat-list-item routerLinkActive="jahon" routerLink="jahon">
+        <mat-icon>book</mat-icon>jahon adabiyoti
+    </a>
+    <a mat-list-item routerLinkActive="active" routerLink="maktab">
+        <mat-icon>book</mat-icon>Maktab darsliklari
+    </a>
+    <a mat-list-item routerLinkActive="active" routerLink="mash">
+        <mat-icon>book</mat-icon>mashhurlar hayoti
+    </a>
+    <a mat-list-item routerLinkActive="active" *ngIf="isAdmin" routerLink="user">
+        <mat-icon>U</mat-icon>Foydalanuvchilar
+    </a>
+</mat-nav-list>
