@@ -26,6 +26,8 @@ public class JWTFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
         try {
+            // JWT Token is in the form "Bearer token". Remove Bearer word and
+            // get  only the Token
 
             String jwtToken = extractJwtFromRequest(request);
 
@@ -43,10 +45,7 @@ public class JWTFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 
             }
-        } catch (ExpiredJwtException ex) {
-            request.setAttribute("exception", ex);
-            throw ex;
-        } catch (BadCredentialsException ex) {
+        } catch (ExpiredJwtException | BadCredentialsException ex) {
             request.setAttribute("exception", ex);
             throw ex;
         }

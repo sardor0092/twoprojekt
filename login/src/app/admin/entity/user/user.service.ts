@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DeleredialogComponent } from 'src/app/deleredialog/deleredialog.component';
-import { User } from 'src/app/shared/model/user';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -25,28 +24,23 @@ export class UserService {
       });
   }
 
-  public getAll(): Observable<any> {
-    return this.http.get<any>(this.api);
+  getAll(sort:any):Observable<any[]> {
+    return this.http.get<any[]>(this.api, {params:{'sort': sort}});
   }
 
-  public create(userlar: User): Observable<User> {
-    return this.http.post<User>(this.api, userlar);
+  create(user: any): Observable<any> {
+    return this.http.post<any>(this.api, user);
   }
-  public update(userlar: User): Observable<User> {
-    return this.http.put<User>(this.api, userlar);
+
+  update(user: any): Observable<any> {
+    return this.http.put<any>(this.api, user);
   }
-  public deleteById(id: number): Observable<any> {
+
+  deleteById(id: number):Observable<any> {
     return this.http.delete(this.api + "/" + id);
   }
 
 
-  
-  // uploadProfileImage(formData: FormData): Observable<any> {
-  //   return this.http.post<FormData>('/api/users/upload', formData, {
-  //     reportProgress: true,
-  //     observe: 'events'
-  //   })
-  // }
 
 
 

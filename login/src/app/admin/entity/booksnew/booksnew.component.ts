@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { catchError, map, merge,  of, startWith, switchMap } from 'rxjs';
 import { BooknewsService } from 'src/app/shared/service/booknews.service';
+import { FileUploadService } from 'src/app/shared/service/file-upload.service';
 
 
 @Component({
@@ -33,7 +34,8 @@ export class BooksnewComponent implements OnInit ,AfterViewInit {
   uploadService: any;
 
   constructor(private booknewService:BooknewsService,
-    public fb:FormBuilder ,private _snackBar: MatSnackBar) { }
+    public fb:FormBuilder ,private _snackBar: MatSnackBar,
+    private fileService: FileUploadService) { }
 
     ngOnInit(): void {
      this.form = this.fb.group({
@@ -111,6 +113,9 @@ export class BooksnewComponent implements OnInit ,AfterViewInit {
       this.form.reset(sinf);
       this.tahrir = true;
     }
+    // saveImage(file: any){
+    //   this.fileService.upload
+    // }
   
     delete(row: any) {
             this.booknewService.deleteById(row.id).subscribe(() => {

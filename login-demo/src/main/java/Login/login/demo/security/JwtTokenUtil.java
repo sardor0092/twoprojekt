@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @Component
 public class JwtTokenUtil implements Serializable {
 
-
     private String secret;
     private int jwtExpirationInMs;
     private int jwtExpirationInMsRememberMe;
@@ -36,13 +35,13 @@ public class JwtTokenUtil implements Serializable {
     // generate token for user
     public String generateToken(UserDetails userDetails, boolean rememberMe) {
         Map<String, Object> claims = new HashMap<>();
-
         Collection<? extends GrantedAuthority> roles = userDetails.getAuthorities();
 
 
-
+// TODO ROLE bilan boshlanishni hal qilish zarur bu vaqtinchalik
         claims.put("roles", roles.stream().map(e -> {
-            return e.getAuthority().toString();
+            String r = e.getAuthority().toString();
+            return r.substring(r.indexOf("_")+1);
         }).toArray());
 
 
